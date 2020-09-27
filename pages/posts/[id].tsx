@@ -7,12 +7,13 @@ import {
 } from "next";
 
 import { Post as PostType } from "../../types";
-import { Article } from "@components/Article";
+import { Article, BlogPostImage } from "@components/Article";
 
 function BlogPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Article>
       <h2>Post Title</h2>
+      <BlogPostImage src="/blog-image.jpeg" alt="Blog" />
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum possimus
         quae optio ad maxime repudiandae, voluptatem sunt voluptas voluptatibus
