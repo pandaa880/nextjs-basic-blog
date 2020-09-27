@@ -18,6 +18,9 @@ function FeedbackForm() {
           <textarea name="name" id="message" rows={5} />
         </label>
       </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
     </form>
   );
 }
