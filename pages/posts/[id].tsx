@@ -5,22 +5,28 @@ import {
   GetStaticProps,
   GetStaticPaths,
 } from "next";
+import Head from "next/head";
+import Link from "next/link";
 
 import { Post as PostType } from "../../types";
 import { Article, BlogPostImage } from "@components/Article";
 
 function BlogPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Article>
-      <h2>Post Title</h2>
-      <BlogPostImage src="/blog-image.jpeg" alt="Blog" />
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum possimus
-        quae optio ad maxime repudiandae, voluptatem sunt voluptas voluptatibus
-        voluptate aperiam sint esse voluptates voluptatum minima harum,
-        delectus, placeat commodi?
-      </p>
-    </Article>
+    <>
+      <Head>
+        <title>Post {post.id}</title>
+        <meta property="og:title" content={post.title} />
+      </Head>
+      <Article>
+        <h2>{post.title}</h2>
+        <BlogPostImage src="/blog-image.jpeg" alt="Blog" />
+        <p>{post.body}</p>
+        <Link href="/">
+          <a>Back to Home</a>
+        </Link>
+      </Article>
+    </>
   );
 }
 
